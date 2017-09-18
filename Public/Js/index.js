@@ -46,7 +46,6 @@ $(function () {
 
 	//发送内容信息
 	$('#send-btn').click(function (){
-
 		if($('#username').val()==''){
 			alert('用户名不能为空');
 			$('#username').focus();
@@ -57,10 +56,12 @@ $(function () {
 			$('#content').focus();
 			return;
 		}
+		//alert($handleUrl);
+
 		$.post($handleUrl,{username:$('#username').val(),content:$('#content').val()},function(data){
 
 			//location.reload()//刷新页面
-			//alert($data.username);
+			//alert(data.username);
 			//根据返回来的数据，更新刚插入的许愿条信息
 			if(data.status){//真->插入数据成功
 				var str = "<dl class='paper a1'>";
