@@ -35,7 +35,7 @@ html{*overflow:auto;min-width: 1020px; }
 
 
 
-.content{ float:left; width:100%; overflow:auto;}
+.content{ float:left; width:100%;overflow:auto;}
 .topbar .user-msg{
 	float: left;
 }

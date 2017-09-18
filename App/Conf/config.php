@@ -6,7 +6,7 @@ return array(
 
     //数据库参数
     'DB_HOST'=>'localhost',
-    'DB_PORT'=>'3307',
+    'DB_PORT'=>'3306',
     'DB_USER' =>'root',
     'DB_PWD' =>'',
     'DB_NAME' =>'think',
@@ -17,6 +17,9 @@ return array(
 
     //模板路径
     'TMPL_FILE_DEPR' => '_',
+
+    //自定义session保存类形，默认是文件形式，现改为数据库
+//    'SESSION_TYPE' => 'Db',
 
 
 );
