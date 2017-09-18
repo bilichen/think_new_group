@@ -4,8 +4,13 @@ class IndexAction extends CommonAction{
 
 
     public function index(){
-        echo '后台';
         $this->display();
+    }
+
+    public function lgout(){
+        session_unset();
+        session_destroy();
+        $this->redirect('/Admin/Login/index');
     }
 
 }
