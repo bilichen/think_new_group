@@ -1,0 +1,8 @@
+th,td{
+    text-align:center;
+    border:1px #0066ff solid;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}

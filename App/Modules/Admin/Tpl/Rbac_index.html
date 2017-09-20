@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理Rbac</title>
+    <style type="text/css">
+        th,td{
+            text-align:center;
+            border:1px #0066ff solid;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>用户名</th>
+        <th>内容</th>
+        <th>时间</th>
+        <th>操作</th>
+    </tr>
+
+    <foreach name="wish" item="v">
+        <tr>
+            <td>{$v.id}</td>
+            <td>{$v.username}</td>
+            <td>{$v.content|replace_phiz=###}</td>
+            <td>{$v.time|date='y-m-d H:i',###}</td>
+            <td><a href="{:U('Admin/MsgMange/delete',array('id'=>$v['id']))}">删除</a></td>
+        </tr>
+    </foreach>
+
+    <tr>
+        <td colspan="5" align="center">
+            {$page}
+        </td>
+    </tr>
+</table>
+</body>
+</html>

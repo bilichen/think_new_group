@@ -4,6 +4,10 @@ return array(
     'APP_GROUP_LIST' => 'Index,Admin',
     'DEFAULT_GROUP' => 'Index',
 
+    //新分组模式
+    'APP_GROUP_MODE' => 1,//旧模式为0
+    'APP_GROUP_PATH' => 'Modules',//可以自定义保存文件名
+
     //数据库参数
     'DB_HOST'=>'localhost',
     'DB_PORT'=>'3306',

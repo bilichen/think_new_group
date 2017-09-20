@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/think_group.iml" filepath="$PROJECT_DIR$/.idea/think_group.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/think_new_group.iml" filepath="$PROJECT_DIR$/.idea/think_new_group.iml" />
     </modules>
   </component>
 </project>
