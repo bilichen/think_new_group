@@ -10,7 +10,7 @@ return array(
 
     //数据库参数
     'DB_HOST'=>'localhost',
-    'DB_PORT'=>'3306',
+    'DB_PORT'=>'3307',
     'DB_USER' =>'root',
     'DB_PWD' =>'',
     'DB_NAME' =>'think',

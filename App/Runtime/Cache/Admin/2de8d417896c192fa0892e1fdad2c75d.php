@@ -22,7 +22,9 @@
             <td><?php echo ($v["id"]); ?></td>
             <td><?php echo ($v["name"]); ?></td>
             <td><?php echo ($v["pid"]); ?></td>
-            <td><?php echo ($v["status"]); ?></td>
+            <td>
+                <?php if($v['status']): ?>开启<?php else: ?>关闭<?php endif; ?>
+            </td>
             <td><?php echo ($v["remark"]); ?></td>
             <td><a href="<?php echo U('Admin/MsgMange/delete',array('id'=>$v['id']));?>">删除</a></td>
         </tr><?php endforeach; endif; ?>

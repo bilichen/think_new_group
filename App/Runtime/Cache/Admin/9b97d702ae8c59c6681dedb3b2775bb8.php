@@ -33,14 +33,21 @@
             <dt>贴子管理
                 <dd><a href="<?php echo U('Admin/MsgMange/index','','');?>" target="to">查看所有贴子</a></dd>
             </dt>
+
             <dt>用户管理RBAC
                 <dd><a href="">用户列表</a></dd>
                 <dd><a href="<?php echo U('Admin/Rbac/role','','');?>" target="to">角色列表</a></dd>
-                <dd><a href="">节点列表</a></dd>
+                <dd><a href="<?php echo U('Admin/Rbac/node','','');?>" target="to">节点列表</a></dd>
                 <dd><a href="">添加用户</a></dd>
                 <dd><a href="<?php echo U('Admin/Rbac/addRole','','');?>" target="to">添加角色</a></dd>
-                <dd><a href="">添加节点</a></dd>
+
+                <dd>添加节点
+                        <dd>&nbsp&nbsp&nbsp&nbsp <a href="<?php echo U('Admin/Rbac/addNode',array('nodename'=>'应用','level'=>1));?>" target="to">添加应用</a></dd>
+                        <dd>&nbsp&nbsp&nbsp&nbsp <a href="<?php echo U('Admin/Rbac/addNode',array('nodename'=>'控制器','level'=>2));?>" target="to">添加应用</a></dd>
+                        <dd>&nbsp&nbsp&nbsp&nbsp <a href="<?php echo U('Admin/Rbac/addNode',array('nodename'=>'方法','level'=>3));?>" target="to">添加应用</a></dd>
+                </dd>
             </dt>
+
         </dl>
     </div>
 

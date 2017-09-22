@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>节点显示页面</title>
     <link rel="stylesheet" href="__PUBLIC__/Css/style.css" />
 
-    <title>角色列表</title>
 </head>
 <body>
-
 <table>
     <tr>
         <th>id</th>
-        <th>角色名称</th>
-        <th>pid</th>
+        <th>节点名称</th>
+        <th>节点描述</th>
         <th>开启状态</th>
-        <th>角色描述</th>
+        <th>详细描述</th>
+        <th>排序</th>
+        <th>pid</th>
+        <th>level</th>
         <th>操作</th>
     </tr>
 
@@ -22,16 +24,19 @@
         <tr>
             <td>{$v.id}</td>
             <td>{$v.name}</td>
-            <td>{$v.pid}</td>
+            <td>{$v.title}</td>
             <td>
                 <if condition="$v['status']">开启<else/>关闭</if>
             </td>
             <td>{$v.remark}</td>
+            <td>{$v.sort}</td>
+            <td>{$v.pid}</td>
+            <td>{$v.level}</td>
             <td><a href="{:U('Admin/MsgMange/delete',array('id'=>$v['id']))}">删除</a></td>
         </tr>
     </foreach>
 
-</table>
+
 
 </body>
 </html>
