@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>添加节点页面</title>
 </head>
 <body>
-    <form action="{:U('Admin/Rbac/addNodeHandle')}" method="post">
+    <form action="<?php echo U('Admin/Rbac/addNodeHandle');?>" method="post">
         <table>
             <tr>
-                <td>{$type}名称：</td>
+                <td><?php echo ($type); ?>名称：</td>
                 <td><input type="text" name="name"></td>
             </tr>
             <tr>
-                <td>{$type}描述：</td>
+                <td><?php echo ($type); ?>描述：</td>
                 <td><input type="text" name="title"></td>
             </tr>
             <tr>
@@ -28,8 +28,8 @@
             </tr>
             <tr>
                 <td>
-                    <input type="hidden" name="pid" value="{$pid}">
-                    <input type="hidden" name="level" value="{$level}">
+                    <input type="hidden" name="pid" value="<?php echo ($pid); ?>">
+                    <input type="hidden" name="level" value="<?php echo ($level); ?>">
                     <input type="submit" value="提交">
                 </td>
             </tr>

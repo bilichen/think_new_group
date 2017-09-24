@@ -14,9 +14,13 @@ class RbacAction extends CommonAction{
     }
     //节点列表
     public function node(){
-        $data = M('node')->select();
-        $this->data = $data;
+        $field = array('id','name','title','pid');
+        $node = M('node')->field($field)->order('sort')->select();
+        $node = node_merge($node);
+
+        $this->node = $node;
         $this->display();
+
     }
     //添加用户
     public function addUser(){
@@ -36,28 +40,29 @@ class RbacAction extends CommonAction{
     }
     //添加节点
     public function addNode(){
-        $this->nodename=I('nodename');
-        $this->level=I('nodename');
+        $this->pid = I('pid',0,'intval');
+        $this->level = I('level',1,'intval');
 
-        switch (I('nodename')){
-            case '应用':
-                    $this->pid = 1;
+        switch($this->level){
+            case 1:
+                $this->type="应用";
                 break;
-            case '控制器':
-                    $this->pid = 1;
+            case 2:
+                $this->type="控制器";
                 break;
-            case '应用':
-                    $this->pid = 1;
+
+            case 3:
+                $this->type="方法";
                 break;
+
         }
-
 
         $this->display();
     }
     //添加节点表单处理
     public function addNodeHandle(){
         if(M('node')->add($_POST)){
-            $this->success('添加节点成功',U('Admin/MsgMange/index'));
+            $this->success('添加节点成功',U('Admin/Rbac/node'));
         }else{
             $this->error('添加节点失败');
         }
