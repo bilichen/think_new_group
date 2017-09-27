@@ -43,7 +43,16 @@
             </td>
             <td>{$v.loginip}</td>
             <td>{$v.logintime|date='y-m-d H:i',###}</td>
-            <td><a href="">删除</a></td>
+            <td>
+                <if condition="$v['username']==C('RBAC_SUPERADMIN')">
+                    <else/>
+                    <if condition="$v['lock']">
+                        已锁定 <a href="{:U('Admin/Rbac/openLockUser',array('rid'=>$v['id']))}">(解锁)</a>
+                       <else/>
+                      <a href="{:U('Admin/Rbac/lockUser',array('rid'=>$v['id']))}">锁定</a>
+                    </if>
+                </if>
+            </td>
         </tr>
     </foreach>
 

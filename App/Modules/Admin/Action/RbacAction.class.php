@@ -32,6 +32,28 @@ class RbacAction extends CommonAction{
         $this->role = M("role")->select();
         $this->display();
     }
+    //锁定用户
+    public function lockUser(){
+        $rid = I('rid');
+        $data['lock'] = '1';
+       if(M('user')->where('id='.$rid)->save($data)){
+           $this->success('锁定成功',U('Admin/Rbac/index'));
+       }else{
+           $this->error('插入失败');
+       }
+    }
+    //解锁用户
+    public function openLockUser(){
+        $rid = I('rid');
+        $data['lock'] = '0';
+       if(M('user')->where('id='.$rid)->save($data)){
+           $this->success('解锁成功',U('Admin/Rbac/index'));
+       }else{
+           $this->error('解锁失败');
+       }
+    }
+
+
     //添加用户表单处理
     public function addUserHandle(){
 //        p($_POST);
