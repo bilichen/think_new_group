@@ -19,6 +19,7 @@
     <tr>
         <th>id</th>
         <th>用户名</th>
+        <th>所属角色</th>
         <th>最后一次登录IP地址</th>
         <th>最后一次登录时间</th>
         <th>操作</th>
@@ -28,6 +29,14 @@
         <tr>
             <td>{$v.id}</td>
             <td>{$v.username}</td>
+            <td>
+                <ul>
+                    <foreach name="v.role" item="v_role">
+                        <li>{$v_role.name}({$v_role.remark})</li>
+                    </foreach>
+                </ul>
+
+            </td>
             <td>{$v.loginip}</td>
             <td>{$v.logintime|date='y-m-d H:i',###}</td>
             <td><a href="">删除</a></td>

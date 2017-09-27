@@ -4,8 +4,12 @@ class RbacAction extends CommonAction{
 
     //用户列表
     public function index(){
-        $this->user = M('user')->select();
+//        $this->user = M('user')->select();
+        $this->user =  D('UserRelation')->relation(true)->select();
+//        p($user);
+//        die;
         $this->display();
+
     }
     //角色列表
     public function role(){
