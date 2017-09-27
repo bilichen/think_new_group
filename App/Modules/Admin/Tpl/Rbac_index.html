@@ -30,11 +30,15 @@
             <td>{$v.id}</td>
             <td>{$v.username}</td>
             <td>
-                <ul>
-                    <foreach name="v.role" item="v_role">
-                        <li>{$v_role.name}({$v_role.remark})</li>
-                    </foreach>
-                </ul>
+                <if condition="$v['username']==C('RBAC_SUPERADMIN')">
+                    超级管理员
+                    <else/>
+                        <ul>
+                            <foreach name="v.role" item="v_role">
+                                <li>{$v_role.name}({$v_role.remark})</li>
+                            </foreach>
+                        </ul>
+                </if>
 
             </td>
             <td>{$v.loginip}</td>
