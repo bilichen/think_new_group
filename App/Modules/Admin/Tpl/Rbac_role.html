@@ -27,7 +27,7 @@
                 <if condition="$v['status']">开启<else/>关闭</if>
             </td>
             <td>{$v.remark}</td>
-            <td><a href="{:U('Admin/MsgMange/delete',array('id'=>$v['id']))}">删除</a></td>
+            <td><a href="{:U('Admin/Rbac/access',array('rid'=>$v['id']))}">配置权限</a></td>
         </tr>
     </foreach>
 

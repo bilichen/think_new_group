@@ -26,7 +26,7 @@
                 <?php if($v['status']): ?>开启<?php else: ?>关闭<?php endif; ?>
             </td>
             <td><?php echo ($v["remark"]); ?></td>
-            <td><a href="<?php echo U('Admin/MsgMange/delete',array('id'=>$v['id']));?>">删除</a></td>
+            <td><a href="<?php echo U('Admin/Rbac/access',array('rid'=>$v['id']));?>">配置权限</a></td>
         </tr><?php endforeach; endif; ?>
 
 </table>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+    <style>
+        table{
+            border: 1px solid black;
+            padding: 20px;
+            margin-left: 200px;
+        }
+        tr{
+            display:block;
+            margin-top: 20px;
+        }
+        .input1{
+            width: 200px;
+            height: 26px;
+        }
+
+        .title td{
+            font-size: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <form action="{:U('Admin/Rbac/addUserHandle')}" method="post">
+        <table>
+            <tr class="title">
+                <td>添加用户</td>
+            </tr>
+            <tr>
+                <td>用户名：</td>
+                <td>
+                    <input type="text" name="username" class="input1">
+                </td>
+            </tr>
+            <tr>
+                <td>密&nbsp&nbsp&nbsp&nbsp码：</td>
+                <td>
+                    <input type="password" name="password" class="input1">
+                </td>
+            </tr>
+            <tr>
+                <foreach name="role" item="v">
+                    <td>
+                        <input type="checkbox" name="role[]" value="{$v['id']}">&nbsp&nbsp{$v.name}({$v.remark})&nbsp&nbsp&nbsp&nbsp
+                    </td>
+                </foreach>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="保存提交">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>

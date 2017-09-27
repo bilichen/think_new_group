@@ -4,7 +4,8 @@ class RbacAction extends CommonAction{
 
     //用户列表
     public function index(){
-
+        $this->user = M('user')->select();
+        $this->display();
     }
     //角色列表
     public function role(){
@@ -24,6 +25,42 @@ class RbacAction extends CommonAction{
     }
     //添加用户
     public function addUser(){
+        $this->role = M("role")->select();
+        $this->display();
+    }
+    //添加用户表单处理
+    public function addUserHandle(){
+//        p($_POST);
+//        die;
+        $data = array(
+            'username' => I('username'),
+            'pwd' => I('password','','md5'),
+            'loginip' => get_client_ip(),
+            'logintime' =>time()
+        );
+        if($rid = M('user')->data($data)->add()){
+//            p($rid);
+//            die;
+            $role = array();
+            foreach(I('role') as $v){
+//                $data1 = array(
+//                    'role_id' => $v['value'],
+//                    'user_id' => $rid
+//                );
+//                M('role_user')->data($data1)->add();
+
+                $role[] = array(
+                    'role_id' => $v['value'],
+                    'user_id' => $rid
+                );
+            }
+            if(M('role_user')->addAll($role)){
+                $this->success('插入成功',U('Admin/Rbac/index'));
+            }else{
+                $this->error('插入失败');
+            }
+
+        }
 
     }
     //添加角色
@@ -66,5 +103,37 @@ class RbacAction extends CommonAction{
         }else{
             $this->error('添加节点失败');
         }
+    }
+
+    //配置角色权限
+    public function access(){
+        $rid = I('rid',0,'intval');
+        $node = M('node')->order('sort')->select();
+        //获取已有的权限
+        $this->access = M('access')->where(array('role_id' =>$rid))->getField('node_id',true);
+
+        $this->node = node_merge($node,0);
+        $this->rid = $rid;
+        $this->display();
+    }
+    //保存角色权限
+    public function setAccess(){
+        $rid = I('rid',0,'intval');
+        M('access')->where(array('role_id' => $rid))->delete();
+        $data = array();
+        foreach(I('access') as $v){
+            $tem = explode('_',$v);
+            $data[] = array(
+               'role_id' => $rid,
+               'node_id' => $tem[0],
+               'level' => $tem[1],
+            );
+        }
+        if(M('access')->addAll($data)){
+            $this->success('修改成功',U('Admin/Rbac/role'));
+        }else{
+            $this->error('修改失败');
+        }
+
     }
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点显示页面</title>
+    <link rel="stylesheet" href="__PUBLIC__/Css/style.css" />
+    <link rel="stylesheet" href="__PUBLIC__/Css/node.css" />
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $('input[level=1]').click(function(){
+                var inputs = $(this).parents('.app').find('input');
+                $(this).attr('checked') ? inputs.attr('checked','checked') : inputs.removeAttr('checked');
+            })
+            $('input[level=2]').click(function(){
+                var inputs = $(this).parents('dl').find('input');
+                $(this).attr('checked') ? inputs.attr('checked','checked') : inputs.removeAttr('checked');
+            })
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+<div id="wrap">
+    <a href="{:U('Admin/Rbac/role')}" class="app_add">返回</a>
+    <form action="{:U('Admin/Rbac/setAccess')}" method="post">
+        <foreach name="node" item="app">
+            <div class="app">
+                <p>
+                    <strong>{$app.title}</strong>
+                    <input type="checkbox" name="access[]" value="{$app['id']}_1" level='1' <if condition="in_array($app['id'],$access)">checked="checked"</if>/>
+                </p>
+
+                <foreach name="app.child" item="action">
+                    <dl>
+                        <dt>
+                            <strong>{$action.title}</strong>
+                            <input type="checkbox" name="access[]" value="{$action['id']}_2" level="2" <if condition="in_array($action['id'],$access)">checked="checked"</if>/>
+
+                        </dt>
+
+                        <foreach name="action.child" item="method">
+                            <dd>
+                                <strong>{$method.title}</strong>
+                                <input type="checkbox" name="access[]" value="{$method['id']}_3" level="3" <if condition="in_array($method['id'],$access)">checked="checked"</if>/>
+
+                            </dd>
+                        </foreach>
+                        <div style="clear:both"></div>
+                    </dl>
+
+                </foreach>
+            </div>
+        </foreach>
+        <input type="hidden" name="rid" value="{$rid}">
+        <input type="submit" value="保存提交" class="subBtn">
+    </form>
+</div>
+</body>
+</html>

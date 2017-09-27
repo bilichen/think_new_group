@@ -1,0 +1,43 @@
+a{
+    text-decoration: none;
+}
+#wrap{
+    border:1px solid black;
+    padding: 10px;
+}
+
+#wrap .app_add{
+    width: 100px;
+    height: 25px;
+    background-color: #701F99;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+
+#wrap .app p{
+    border:1px solid grey;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #00FFFF;
+}
+#wrap .app p strong{
+    font-size: 22px;
+    color: #2074bb;
+}
+#wrap .app dl{
+    border:1px solid grey;
+    border-radius: 4px;
+}
+
+#wrap .app dl dt{
+    padding: 10px 0 10px 40px;
+    background-color: #5cb85c;
+}
+#wrap .app dl dd{
+    padding: 10px 0 10px 40px;
+    float: left;
+}
+
+

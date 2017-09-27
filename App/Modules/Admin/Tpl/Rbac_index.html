@@ -19,26 +19,22 @@
     <tr>
         <th>id</th>
         <th>用户名</th>
-        <th>内容</th>
-        <th>时间</th>
+        <th>最后一次登录IP地址</th>
+        <th>最后一次登录时间</th>
         <th>操作</th>
     </tr>
 
-    <foreach name="wish" item="v">
+    <foreach name="user" item="v">
         <tr>
             <td>{$v.id}</td>
             <td>{$v.username}</td>
-            <td>{$v.content|replace_phiz=###}</td>
-            <td>{$v.time|date='y-m-d H:i',###}</td>
-            <td><a href="{:U('Admin/MsgMange/delete',array('id'=>$v['id']))}">删除</a></td>
+            <td>{$v.loginip}</td>
+            <td>{$v.logintime|date='y-m-d H:i',###}</td>
+            <td><a href="">删除</a></td>
         </tr>
     </foreach>
 
-    <tr>
-        <td colspan="5" align="center">
-            {$page}
-        </td>
-    </tr>
+
 </table>
 </body>
 </html>
