@@ -60,7 +60,7 @@ class RbacAction extends CommonAction{
 //        die;
         $data = array(
             'username' => I('username'),
-            'pwd' => I('password','','md5'),
+            'pwd' => I('password'),
             'loginip' => get_client_ip(),
             'logintime' =>time()
         );
