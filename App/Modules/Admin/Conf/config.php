@@ -7,8 +7,8 @@ return array(
     'USER_AUTH_ON'=> true,//是否开启验证
     'USER_AUTH_TYPE'=> 1,//验证类型(1、登录验证，２、时时验证)
     'USER_AUTH_KEY'=>'uid',//用户认证识别号
-    'NOT_AUTH_MODULE'=>'',//无需认证的控制器
-    'NOT_AUTH_ACTION'=>'lgout',//无需认证的动作方法
+    'NOT_AUTH_MODULE'=>'Index',//无需认证的控制器
+    'NOT_AUTH_ACTION'=>'lockUser,openLockUser,addUserHandle,addRoleHandle,addNodeHandle,setAccess',//无需认证的动作方法
     'RBAC_ROLE_TABLE'=>'hd_role',//角色表名称
     'RBAC_USER_TABLE'=>'hd_role_user',//角色与用户的中间表名称
     'RBAC_ACCESS_TABLE'=>'hd_access',//权限表名称
